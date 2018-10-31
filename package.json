@@ -2,7 +2,7 @@
   "name": "ng-rxjs-store",
   "version": "6.0.0",
   "description": "an rxjs-based store solution intended for use in angular services",
-  "main": "store.ts",
+  "main": "index.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/ahuviy/rxjs-store.git"
