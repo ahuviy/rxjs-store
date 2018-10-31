@@ -1,7 +1,7 @@
-const { BehaviorSubject } = require('rxjs');
+var { BehaviorSubject } = require('rxjs');
 
 function Store(initialState) {
-  const internalStore$ = new BehaviorSubject(initialState);
+  var internalStore$ = new BehaviorSubject(initialState);
 
   return {
     /**
