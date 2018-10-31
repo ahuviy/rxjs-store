@@ -1,6 +1,6 @@
 {
   "name": "ng-rxjs-store",
-  "version": "6.0.4",
+  "version": "6.0.5",
   "description": "An rxjs-based store solution intended for use in angular services",
   "main": "index.js",
   "repository": {
