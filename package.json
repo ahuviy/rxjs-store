@@ -1,5 +1,5 @@
 {
-  "name": "rxjs-store",
+  "name": "ng-rxjs-store",
   "version": "6.0.0",
   "description": "an rxjs-based store solution intended for use in angular services",
   "main": "store.ts",
