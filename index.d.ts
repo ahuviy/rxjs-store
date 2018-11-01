@@ -5,41 +5,41 @@ import { Observable } from 'rxjs';
  * 
  * @param initialState The initial state.
  */
-export declare function Store<T>(initialState: T): PrivateStore<T>;
+export declare function DataContainer<T>(initialState: T): WritableDataContainer<T>;
 
-export interface PrivateStore<T> {
+export interface WritableDataContainer<T> {
   /**
-   * The observable state of the store.
+   * The observable state of the data.
    */
   stream: Observable<T>;
 
   /**
-   * The current store value.
+   * The current value of the data.
    */
   readonly value: T;
 
   /**
-   * Publish a new store state.
+   * Publish a new data value.
    * 
    * @param transformer A function that receives the previous state and returns the new state.
    */
   publish(transformer?: (value: T) => T): void;
 
   /**
-   * Returns the public version of the store,
+   * Returns the readonly version of the data-container,
    * without the ability to publish (push updates).
    */
-  toPublic(): PublicStore<T>;
+  toReadonly(): ReadonlyDataContainer<T>;
 }
 
-export interface PublicStore<T> {
+export interface ReadonlyDataContainer<T> {
   /**
-   * The observable state of the store.
+   * The observable state of the data.
    */
   stream: Observable<T>;
   
   /**
-   * The current store value.
+   * The current value of the data.
    */
   readonly value: T;
 }

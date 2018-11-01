@@ -1,23 +1,23 @@
 var BehaviorSubject = require('rxjs').BehaviorSubject;
 
-exports.Store = function (initialState) {
-  var internalStore$ = new BehaviorSubject(initialState);
+exports.DataContainer = function (initialState) {
+  var internalSubject = new BehaviorSubject(initialState);
 
   return {
-    stream: internalStore$.asObservable(),
+    stream: internalSubject.asObservable(),
     get value() {
-      return internalStore$.getValue();
+      return internalSubject.getValue();
     },
     publish: function (transformer) {
       var newValue = transformer
-        ? transformer(internalStore$.getValue())
-        : internalStore$.getValue();
-      internalStore$.next(newValue);
+        ? transformer(internalSubject.getValue())
+        : internalSubject.getValue();
+      internalSubject.next(newValue);
     },
     toPublic: function () {
       return {
-        stream: internalStore$.asObservable(),
-        get value() { return internalStore$.getValue(); }
+        stream: internalSubject.asObservable(),
+        get value() { return internalSubject.getValue(); }
       };
     },
   };
