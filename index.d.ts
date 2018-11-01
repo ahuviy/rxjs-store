@@ -14,10 +14,10 @@ export interface PrivateStore<T> {
   readonly value: T;
 
   /**
-   * Publish a new store state. use the mutator function
-   * to mutate the store value before publishing the new copy.
+   * Publish a new store state. The transformer function
+   * returns the new store value to be published.
    */
-  publish(mutator?: (value: T) => void): void;
+  publish(transformer?: (value: T) => T): void;
 
   /**
    * Returns the public version of the store,

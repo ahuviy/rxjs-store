@@ -8,9 +8,11 @@ exports.Store = function (initialState) {
     get value() {
       return internalStore$.getValue();
     },
-    publish: function (mutator) {
-      mutator && mutator(internalStore$.getValue());
-      internalStore$.next(internalStore$.getValue());
+    publish: function (transformer) {
+      var newValue = transformer
+        ? transformer(internalStore$.getValue())
+        : internalStore$.getValue();
+      internalStore$.next(newValue);
     },
     toPublic: function () {
       return {
