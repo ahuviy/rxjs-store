@@ -1,4 +1,3 @@
-// TODO(ahuvi): differentiate old vs new rxjs, and add import for old rxjs BehaviorSubject
 var BehaviorSubject = require('rxjs').BehaviorSubject;
 
 exports.Store = function (initialState) {
