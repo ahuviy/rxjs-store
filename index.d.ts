@@ -1,5 +1,10 @@
 import { Observable } from 'rxjs';
 
+/**
+ * Creates an RxJS-based observable data container.
+ * 
+ * @param initialState The initial state.
+ */
 export declare function Store<T>(initialState: T): PrivateStore<T>;
 
 export interface PrivateStore<T> {
@@ -14,8 +19,9 @@ export interface PrivateStore<T> {
   readonly value: T;
 
   /**
-   * Publish a new store state. The transformer function
-   * returns the new store value to be published.
+   * Publish a new store state.
+   * 
+   * @param transformer A function that receives the previous state and returns the new state.
    */
   publish(transformer?: (value: T) => T): void;
 
